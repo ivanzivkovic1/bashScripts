@@ -45,8 +45,10 @@ fi
 
 
 # handling script options if any 
-while getopts "hv" opt; do
+while getopts "a:hv" opt; do
     case "$opt" in
+	a)  ACTION=${OPTARG}
+            ;;
         h)
             show_help
             exit 0
@@ -70,6 +72,9 @@ if [ "$#" -lt 1 ]; then
     show_help >&2
     exit 1
 fi
+
+# Test for mandatory options
+[[ -z ${ACTION} ]] && printf "\nACTION could not be empty\n" && show_help >&2 && exit 1
 
 exit 0
 # EOF
