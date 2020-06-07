@@ -1,11 +1,11 @@
 #!/usr/bin/env /bin/bash
 #
-# Author: Dejan Djordjevic
-# Creation date: 2014-10-13
-# Updated by: Ivan Zivkovic;
-# Update date: 2014-10-13
-# Updated by: Ivan Zivkovic;
-# Update date: 2020-06-07
+# Author:          Dejan Djordjevic
+# Creation date:   2014-10-13
+# Updated by:      Ivan Zivkovic
+# Update date:     2014-10-13
+# Updated by:      Ivan Zivkovic
+# Update date:     2020-06-07
 # 
 # Note:
 #
@@ -20,7 +20,11 @@ MY_DATE=$(/bin/date -d "2014-10-13" +'%B,%d %Y')
 # var1="value for var2"
 # Optionaly you can set default values, which will be rewriten it deffined
 
-. /path/to/some.config
+CONFIGPATH="/path to config"
+CONFIGFILE="FILE NAME.config"
+if test -f ${CONFIGPATH}/${CONFIGFILE} ; then
+  . ${CONFIGPATH}/${CONFIGFILE}
+fi
 
 # function definitions
 # show_help function for displaying help information
